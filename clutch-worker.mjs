@@ -35,7 +35,8 @@ function isClutch(g, margin, windowSec) {
     g.state === "in" &&
     g.period >= 4 &&
     g.clock <= windowSec &&
-    Math.abs(g.home.score - g.away.score) <= margin
+    Math.abs(g.home.score - g.away.score) <= 3 + g.clock / 60
+
   );
 }
 
