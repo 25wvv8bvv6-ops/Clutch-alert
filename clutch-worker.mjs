@@ -46,7 +46,8 @@ function periodLabel(p) {
 async function push(env, title, body) {
   const res = await fetch("https://ntfy.sh/" + encodeURIComponent(env.NTFY_TOPIC), {
     method: "POST",
-    headers: { Title: title, Priority: "high", Tags: "basketball" },
+    headers: { Title: title, Priority: "high", Tags: "basketball", Authorization: "Bearer " + env.NTFY_TOKEN },
+
     body,
   });
   if (!res.ok) throw new Error("ntfy returned " + res.status);
